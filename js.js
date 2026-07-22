@@ -75,6 +75,12 @@
     }
   };
 
+   const menuToggle = document.querySelector('.menu-toggle');
+const bannerNav = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => {
+  bannerNav.classList.toggle('active');
+});
   const toggleFolder = () => {
     setGalleryVisibility(!galleryContainer.classList.contains("open"));
   };
