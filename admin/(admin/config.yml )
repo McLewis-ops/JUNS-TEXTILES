@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main # or master, depending on your GitHub repository default branch
+
+media_folder: "images" # Where uploaded images will be saved
+public_folder: "images" # The path used in HTML/JS
+
+collections:
+  - name: "catalog"
+    label: "Catalog Products"
+    folder: "content/catalog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Material", name: "material", widget: "string", default: "100% Cotton" }
+      - { label: "Roll Width", name: "width", widget: "string", default: "58 / 60 Inches" }
+      - { label: "Category", name: "category", widget: "select", options: ["Uniforms", "Cotton", "Suiting", "Workwear"] }

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JUNS TEXTILES | Premium Fabric & Textile Solutions</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254725481234?text=Hello%20JUNS%20TEXTILES,%20I%20would%20like%20to%20make%20an%20inquiry." 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="JUNS TEXTILES Logo" class="logo" id="site-logo" />
+      <span class="brand-name">JUNS TEXTILES</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#admin">Client Admin</a></li>
+        <li><a href="#quote">Request Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero / Banner Section -->
+  <section id="home" class="hero-section">
+    <img src="images/banner.png" alt="JUNS TEXTILES Banner" class="banner" id="site-banner"/>
+    <div class="hero-banner" id="hero-banner" style="background-image: url('banner.jpg');">
+      <div class="hero-overlay">
+        <h1>Quality Textiles & Fabrics</h1>
+        <p>Explore our extensive collection of high-grade textile products.</p>
+        <a href="#catalog" class="btn">View Catalog</a>
+      </div>
+    </div>
+  </section>
+
+ <div class="filter-container">
+  <input type="text" id="search-input" placeholder="Search fabrics or products..." />
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="cotton">Cotton</button>
+    <button class="filter-btn" data-category="uniform">Uniforms</button>
+    <button class="filter-btn" data-category="silk">Silk/Satin</button>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="image-modal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modal-img" />
+  <div id="modal-caption"></div>
+</div>
+
+  <!-- Catalog Section -->
+  <section id="catalog" class="catalog-section">
+    <h2>Our Collection</h2>
+    <p class="subtitle">Showing all 51 products in our catalog</p>
+
+    <div class="catalog-folder" id="catalog-folder" role="button" tabindex="0" aria-expanded="false">
+      <div class="folder-icon">
+        <i class="fa-regular fa-folder"></i>
+      </div>
+      <div class="folder-details">
+        <span class="folder-title">Open Product Catalog Folder</span>
+        <span class="folder-meta">51 textile items inside</span>
+      </div>
+      <button type="button" class="btn btn-secondary" id="toggle-folder">Open Folder</button>
+    </div>
+
+    <div id="gallery-container" class="gallery-container collapsed" aria-hidden="true">
+      <div class="gallery-grid" id="gallery">
+        <!-- JavaScript automatically populates 51 images here when the folder is opened -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- Client Upload & Updates Portal (Local Management) -->
+  <section id="admin" class="admin-section">
+    <h2>Client Admin Panel</h2>
+    <p class="subtitle">Quickly add new pictures or announcements to preview on the page</p>
+
+    <div class="admin-card">
+      <form id="upload-form">
+        <div class="form-group">
+          <label for="item-title">Item Title / Product Name</label>
+          <input type="text" id="item-title" placeholder="e.g., Premium Cotton Fabric - Navy Blue" required />
+        </div>
+        <div class="form-group">
+          <label for="item-image">Select Product Image</label>
+          <input type="file" id="item-image" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-secondary">Add New Item to Catalog</button>
+      </form>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  
+
+    <!-- Quote Request Form (Web3Forms) -->
+  <section id="quote" class="quote-section">
+    <h2>Request a Quote / Inquiry</h2>
+    <p class="subtitle">Fill out the form below and we will get back to you shortly.</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="quote-form">
+      
+      <!-- REPLACE WITH YOUR ACTUAL WEB3FORMS ACCESS KEY -->
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+
+      <!-- Form Settings -->
+      <input type="hidden" name="subject" value="New Inquiry - JUNS TEXTILES Website" />
+      <input type="hidden" name="from_name" value="JUNS TEXTILES Web Form" />
+      
+      <!-- Optional: Redirect URL after successful submission (or leave blank for Web3Forms default success page) -->
+      <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thanks.html"> -->
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="john@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone / WhatsApp Number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+254 700 000000" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Fabric Specifications / Order Details</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Describe the materials, quantities, or styles you are interested in..."></textarea>
+      </div>
+
+      <!-- Spam Protection (Honeypot) -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none;" />
+
+      <button type="submit" class="btn">Send Inquiry</button>
+    </form>
+  </section>
+  </section>
+
+<!-- Product Quick View Modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      
+      <div class="modal-body">
+        <div class="modal-img-container">
+          <img id="modal-img" src="" alt="Product Detail" />
+        </div>
+        
+        <div class="modal-details">
+          <h2 id="modal-title">Fabric Item Name</h2>
+          <p class="modal-category">Category: <span id="modal-cat">Premium Textiles</span></p>
+          
+          <div class="specs-grid">
+            <div class="spec-item">
+              <strong>Material:</strong> <span id="modal-material">100% Cotton / Polyester Blend</span>
+            </div>
+            <div class="spec-item">
+              <strong>Roll Width:</strong> <span id="modal-width">58 / 60 Inches</span>
+            </div>
+            <div class="spec-item">
+              <strong>Min. Order:</strong> <span id="modal-moq">10 Meters</span>
+            </div>
+            <div class="spec-item">
+              <strong>Availability:</strong> <span class="badge-instock">In Stock</span>
+            </div>
+          </div>
+
+          <p class="modal-description">
+            High-durability fabric suitable for uniform tailoring, corporate wear, and custom textile applications. Excellent color retention and comfortable finish.
+          </p>
+
+          <a id="modal-wa-btn" href="#" target="_blank" class="btn btn-whatsapp-modal">
+            <i class="fa-brands fa-whatsapp"></i> Order / Inquire on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <!-- Enhanced Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      
+      <!-- Column 1: About / Branding -->
+      <div class="footer-col">
+        <h3>JUNS TEXTILES</h3>
+        <p>Your trusted provider for high-grade textiles, custom uniform fabrics, and premium materials.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#quote">Request Quote</a></li>
+          <li><a href="#admin">Client Admin</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact Information -->
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-info">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Nairobi, Kenya</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+254 725 481 234, +254 721 761 556</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <span>joywa06@yahoo.com, b.wanjeri@gmail.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Business Hours -->
+      <div class="footer-col">
+        <h4>Working Hours</h4>
+        <p>Mon - Fri: 8:00 AM - 5:00 PM</p>
+        <p>Saturday: 9:00 AM - 1:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 JUNS TEXTILES. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js.js"></script>
+</body>
+</html>
