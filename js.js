@@ -153,3 +153,21 @@
 
   setGalleryVisibility(false);
 });
+
+
+const toggleBtn = document.querySelector('.menu-toggle'); // adjust selector to match your HTML class
+const navMenu = document.querySelector('.nav-menu');
+
+if (toggleBtn && navMenu) {
+  // Toggle menu when clicking hamburger icon
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Automatically collapse menu when a navigation link is clicked
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  });
+}
