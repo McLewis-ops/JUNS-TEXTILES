@@ -6,7 +6,7 @@
   const searchInput = document.getElementById("search-input");
   const uploadForm = document.getElementById("upload-form");
   const productModal = document.getElementById("product-modal");
-  const closeModal = productModal?.querySelector(".close-modal");
+  const closeModal = productModal && productModal.querySelector(".close-modal");
   const modalImg = document.getElementById("modal-img");
   const modalTitle = document.getElementById("modal-title");
   const modalWaBtn = document.getElementById("modal-wa-btn");
@@ -66,6 +66,7 @@
 
   const setGalleryVisibility = (isOpen) => {
     galleryContainer.classList.toggle("open", isOpen);
+    galleryContainer.style.display = isOpen ? "block" : "none";
     folderToggle.textContent = isOpen ? "Close Folder" : "Open Folder";
     catalogFolder.setAttribute("aria-expanded", isOpen.toString());
     galleryContainer.setAttribute("aria-hidden", (!isOpen).toString());
@@ -76,25 +77,25 @@
   };
 
   const toggleFolder = () => {
-    setGalleryVisibility(!galleryContainer.classList.contains("open"));
+    const isCurrentlyOpen = galleryContainer.classList.contains("open");
+    setGalleryVisibility(!isCurrentlyOpen);
   };
 
-  folderToggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    toggleFolder();
-  });
-
-  catalogFolder.addEventListener("click", (event) => {
-    if (event.target === folderToggle) return;
-    toggleFolder();
-  });
-
-  catalogFolder.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
+  if (folderToggle) {
+    folderToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
       toggleFolder();
-    }
-  });
+    });
+  }
+
+  if (catalogFolder) {
+    catalogFolder.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleFolder();
+      }
+    });
+  }
 
   if (searchInput) {
     searchInput.addEventListener("input", (event) => {

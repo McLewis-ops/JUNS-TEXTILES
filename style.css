@@ -105,6 +105,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .hero-overlay {
@@ -261,15 +269,11 @@ body {
 }
 
 .gallery-container {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.45s ease, opacity 0.45s ease;
+  display: none;
 }
 
 .gallery-container.open {
-  max-height: 3000px;
-  opacity: 1;
+  display: block;
 }
 
 .product-card {
@@ -671,16 +675,30 @@ footer {
   }
 }
 
-/* Mobile View Settings */
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none; /* Hide menu items by default on mobile */
+  .navbar, .nav-menu {
     flex-direction: column;
-    width: 100%;
+    gap: 15px;
   }
 
-  /* Class added when toggle button is clicked */
-  .nav-menu.active {
-    display: flex; /* Show menu when active */
+  .hero-banner {
+    min-height: 260px;
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .banner {
+    max-height: 320px;
+    width: 100%;
+    object-fit: cover;
   }
 }
+
